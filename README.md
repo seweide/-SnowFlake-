@@ -17,11 +17,12 @@ package com.leon.distributed.algorithm;
 * SnowFlake的优点是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞(由数据中心ID和机器ID作区分)，并且效率较高，
 * 经测试，我的渣机器SnowFlake每秒能够产生11万ID左右。
 */
+
 public class SnowflakeIdWorker {
-    /** 开始时间截 (建议用服务第一次上线的时间，到毫秒级的时间戳) */
+    // 开始时间截 (建议用服务第一次上线的时间，到毫秒级的时间戳)
     private final long twepoch = 687888001020L;
  
-    /** 机器id所占的位数 */
+    // 机器id所占的位数 
     private final long workerIdBits = 10L;
  
     /** 支持的最大机器id，结果是1023 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数) */
